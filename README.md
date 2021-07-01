@@ -16,3 +16,10 @@ Temas :<br>
 </ol>
 <h5>Divulgador: Alex Tumiri Huanca</h5>
 
+## Datasets
+- Dataset de Clasificacion de Texto
+- Dataset de Traduccion
+- Dataset de Imagenes para Segmentacion
+
+
+  
