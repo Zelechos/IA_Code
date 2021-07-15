@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				
+                <section>
+                    <h1>Transformers</h1>
+                        <span style="display: inline-block;" class="fragment fade-left">Es una Arquitectura de Red neuronal</span>
+                        <span style="display: inline-block;" class="fragment fade-left">Introducida en 2017</span>
+                        <span style="display: inline-block;" class="fragment fade-left">en el articulo "Attention is all you need" (Atencion es todo lo que necesitas)</span>
+                </section>
+
+                <section>
+                    <h2>¿Qué es la atención?</h2>
+                    <span style="display: inline-block;" class="fragment fade-up">
+                        Un mecanismo de atención, en las redes neuronales, consiste en una operación matemática que recibe como inputs un conjunto de vectores (que ya sabemos que pueden representar texto, imágenes o cualquier tipo de datos con el que trabajemos) y nos da como resultado otro conjunto de vectores. Este resultado dependerá, del tipo de mecanismo de atención que se utilize.
+                    </span>
+                </section>
+
+                <section data-auto-animate>
+
+                    <section>
+                        <h2>Mecanismos de Atencion</h2>
+                        <ul>
+                            <li class="fragment fade-left">Hard attention</li>
+                            <li class="fragment fade-right">Soft attention</li>
+                            <li class="fragment fade-up">Self attention</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Hard attention mechanism</h2>
+                        <p class="fragment fade-down">
+                            Conocido como hard attention mechanism. En este tipo de atención generaremos un número de vectores a la salida igual a los de la entrada (de ahora en adelante asumiremos que este es siempre el caso a no ser que se indique lo contrario) en el que cada output atenderá únicamente a su correspondiente vector a la entrada. O dicho de otra forma, este mecanismo de atención no produce nada nuevo, produce a la salida lo mismo que recibe a la entrada.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Soft attention mechanism</h2>
+                        <p class="fragment fade-down">
+                            Si en el caso de la atención fuerte, cada vector generado presta atención simplemente a un único vector en la entrada, en el caso de la atención débil vamos a permitir prestar atención a todos los vectores a la entrada. Así pues, cada vector generado será una combinación de los inputs. En el siguiente ejemplo, cada vector generado presta un 70% de atención al vector en la entrada en su misma posición y un 15% al resto.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Hard attention</h2>
+                        <p class="fragment fade-down">
+                            Conocido como hard attention mechanism. En este tipo de atención generaremos un número de vectores a la salida igual a los de la entrada (de ahora en adelante asumiremos que este es siempre el caso a no ser que se indique lo contrario) en el que cada output atenderá únicamente a su correspondiente vector a la entrada. O dicho de otra forma, este mecanismo de atención no produce nada nuevo, produce a la salida lo mismo que recibe a la entrada.
+                        </p>
+                    </section>
+                </section>
+
+
+			</div>
+
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/search/search.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>
