@@ -128,6 +128,7 @@
                             </p>
                     </section>
                 </section>
+
                 <section data-auto-animate>
                     <section>
                         <h3>Multi-Head Self-Attention</h3>
@@ -148,9 +149,67 @@
                             A grandes rasgos, repetimos el mecanismo de atención aplicando diferentes proyecciones a la hora de obtener nuestras queries, keys y values. Una vez aplicada la atención a cada cabeza, concatenamos los resultados y aplicamos una nueva capa lineal para obtener el resultado final.
                         </p>
                     </section>
-                    
-                    
                 </section>
+
+                <section data-auto-animate>
+                    <section>
+                        <h3>Transformer Encoder</h3>
+                        <img src="https://juansensio.com/blog/063/encoder.png" class="fragment fade-down">
+                    </section>
+                    <section>
+                        <p>
+                            El conocido como Transformer Encoder esta arquitectura es utilizada en modelos como BERT o ViT(Visual trasformers).
+                            Como podemos ver en la figura, un Transformer no es más que una secuencia de capas formada por:
+                        </p>
+                    </section>
+                    <section>
+                        <ul>
+                            <li class="fragment fade-down">El mecanismo de atención multi-head.</li>
+                            <li class="fragment fade-up">Normalización y conexión residual (inspirado en ResNet)</li>
+                            <li class="fragment fade-left">Un MLP(Perceptron Multicapa)</li>
+                            <li class="fragment fade-right">Otra normalización y conexión residual</li>
+                            <li class="fragment fade-down">A la entrada de la primera capa, tenemos una etapa de embedding para proyectar nuestros inputs a la dimensión adecuada </li>
+                            <li class="fragment fade-up">Tambien le añadimos un postitional encoding es el mecanismo que le dirá al transformer en qué posición de la secuencia se encuentra cada vector.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section data-auto-animate>
+                    <section>
+                        <h3>Transformers Visuales (ViT)</h3>
+                        <img src="./css/img/VIT.jpg" class="fragment fade-down" width="700">
+                    </section>
+                    <section>
+                        <p>
+                            El Transformer Encoder, usado en multitud de aplicaciones. Una de ellas, es la tarea de clasificación de imágenes. La cual está dando mejores resultados que los modelos basados en redes convolucionales, las líderes indiscutibles en el campo de la visión artificial hasta día de hoy..
+                        </p>
+                    </section>
+                    
+                    <section>
+                        <h3>Transformer Encoder Modificado</h3>
+                        <img src="https://juansensio.com/blog/063/encoder.png" class="fragment fade-down">
+                        
+                        <img src="./css/img/EncoderModified.jpg" class="fragment fade-down" width="318">
+                    </section>
+
+                </section>
+
+                <section data-auto-animate>
+                    <section>
+                        <h3>Transformer Decoder</h3>
+                        <p class="fragment fade-down">
+                            La arquitectura de Transformer original presentada en Attention is all you need incluye también un Decoder.
+                        </p>
+                        
+                    </section>
+                    <section>
+                        <img src="https://juansensio.com/blog/065/transformer.png"  width=450">
+                    </section>
+                    <section>
+                        <p>En la Masked Multi-Head Attention consiste configurar el transformer para que solo atienda a las palabras que vienen detras en cada una de las posiciones asi vamos a poder simular que estamos haciendo esta generacion letra a letra pero en una sola operacion</p>
+                    </section>
+
+                </section>
+
 
 
 			</div>
