@@ -29,14 +29,14 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				
-                <section>
+                <section data-auto-animate>
                     <h1>Transformers</h1>
                         <span style="display: inline-block;" class="fragment fade-left">Es una Arquitectura de Red neuronal</span>
                         <span style="display: inline-block;" class="fragment fade-left">Introducida en 2017</span>
                         <span style="display: inline-block;" class="fragment fade-left">en el articulo "Attention is all you need" (Atencion es todo lo que necesitas)</span>
                 </section>
 
-                <section>
+                <section data-auto-animate>
                     <h2>¿Qué es la atención?</h2>
                     <span style="display: inline-block;" class="fragment fade-up">
                         Un mecanismo de atención, en las redes neuronales, consiste en una operación matemática que recibe como inputs un conjunto de vectores (que ya sabemos que pueden representar texto, imágenes o cualquier tipo de datos con el que trabajemos) y nos da como resultado otro conjunto de vectores. Este resultado dependerá, del tipo de mecanismo de atención que se utilize.
@@ -69,11 +69,87 @@
                     </section>
 
                     <section>
-                        <h2>Hard attention</h2>
+                        <h4>Diferencia entre Soft attention y Hard attention</h4>
+                        <img src="https://miro.medium.com/max/1232/0*gIh9xiXM3FCCj9bY">
+                    </section>
+
+                    <section>
+                        <h2>Self attention</h2>
                         <p class="fragment fade-down">
-                            Conocido como hard attention mechanism. En este tipo de atención generaremos un número de vectores a la salida igual a los de la entrada (de ahora en adelante asumiremos que este es siempre el caso a no ser que se indique lo contrario) en el que cada output atenderá únicamente a su correspondiente vector a la entrada. O dicho de otra forma, este mecanismo de atención no produce nada nuevo, produce a la salida lo mismo que recibe a la entrada.
+                            Cada vector es responsable de decidir cuánta atención prestar al resto. Para ello calcularemos la similitud entre vectores. Cuanto más parecidos sean dos vectores, más atención habrá entre ellos y viceversa. Esta similitud la calculamos multiplicando los vectores por si mismos y aplicando una función softmax.
                         </p>
                     </section>
+                    <section>
+                        En una tarea de traducción de texto, por ejemplo, a la hora de generar una palabra un mecanismo de self attention permitiría prestar más atención a aquellas palabras más relacionadas a la entrada, y no desperdiciar computación con aquellas que no tienen importancia.<br>
+                        <img src="http://jalammar.github.io/images/t/transformer_self-attention_visualization_2.png" style="width:350px;">
+                    </section>
+                </section>
+
+
+                <section data-auto-animate>
+                    <section>
+                        <h3>Scaled Dot-Product attention</h3>
+                        <img src="https://juansensio.com/blog/061/selfattention.png" class="fragment fade-down">
+                    </section>
+                    <section>
+                        <p>Este mecanismo de atención consiste en tres conjuntos de vectores  K ,  Q  y  V , llamados respectivamente keys, queries y values.<br> Utilizaremos  K  y  Q  para calcular la matriz de atención, la cual aplicaremos a  V .
+                        </p>
+                    </section>
+
+                    <section>
+                        <p>
+                            <span style="font-size: 35px;">
+                                ¿Si utilizamos el mecanismo de self-attention en esta formulación?
+                            </span><br>
+                            <img src="./css/img/self-attention.jpg" class="fragment fade-up">
+                            <br>    
+                            <span class="fragment fade-up">
+                            En este caso escalamos el producto de  Q  y  K  con la raíz cuadrada de su dimensión,  d<sub>k</sub>  (detalles técnicos). 
+                            </span>
+                        </p>
+                        
+                    </section>
+
+                    <section>
+                        <p>
+                            ¿De dónde vienen estas  Q ,  K  y  V ? Aquí es donde entra en juego la componente de aprendizaje. Para que este sistema sea capaz de aprender, calcularemos los diferentes vectores utilizando perceptrones:  Q=W<sub>q</sub>X ,  K=W<sub>k</sub>X  y  V=W<sub>v</sub>X . De esta manera, nuestro sistema será capaz de calcular la mejor representación de  X  para obtener un alineamiento óptimo en el mecanismo de atención.
+                        </p>
+                    </section>
+                    <section>
+                            <p>
+                                <span style="font-size: 33px;">
+                                    ¿Si utilizamos el mecanismo de hard-attention en esta formulación?
+                                </span><br>
+                                <img src="./css/img/hard-attention.jpg" class="fragment fade-up">
+                                <br>    
+                                <span class="fragment fade-up" style="font-size: 33px;">
+                                    Un mecanismo de atención, con hard-attention, no es más que un perceptrón. Esto significa que un perceptrón es en realidad un caso particular de un mecanismo más general y potente. Esto abre un nuevo abanico de arquitectura, más allá del transformer, basado en mecanismos de atención. A grandes rasgos, puedes entender el mecanismo de atención como un perceptrón cuyos pesos dependen de los datos, en vez de ser siempre los mismos (resultado del entrenamiento).
+                                </span>
+                            </p>
+                    </section>
+                </section>
+                <section data-auto-animate>
+                    <section>
+                        <h3>Multi-Head Self-Attention</h3>
+                        <img src="https://juansensio.com/blog/062/multiheadattention.png" class="fragment fade-down">
+                    </section>
+                    <section>
+                        <p>
+                            Este mecanismo toma inspiración en el uso de múltiples filtros en una red convolucional para mejorar la capacidad de representación de datos. En el contexto de atención, esto se traduce en repetir un número determinado de veces (heads o cabezas) el mecanismo de scaled-dot product attention
+                        </p>
+                    </section>
+                    <section>
+                        <img src="css/img/Mulhead.jpg" class="fragment fade-down"><br>
+                        <span class="fragment fade-down">Donde head es scaled-dot product attention</span><br>
+                        <img src="css/img/head.jpg" class="fragment fade-down">
+                    </section>
+                    <section>
+                        <p>
+                            A grandes rasgos, repetimos el mecanismo de atención aplicando diferentes proyecciones a la hora de obtener nuestras queries, keys y values. Una vez aplicada la atención a cada cabeza, concatenamos los resultados y aplicamos una nueva capa lineal para obtener el resultado final.
+                        </p>
+                    </section>
+                    
+                    
                 </section>
 
 
