@@ -5,7 +5,6 @@ logs/
 results/
 temp/
 mrcnn/
-
 setup.py
 setup.cfg
 
