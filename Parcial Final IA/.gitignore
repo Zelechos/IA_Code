@@ -1,9 +1,15 @@
 # Data files and directories common in repo root
-datasets/
+samples/
 logs/
 *.h5
 results/
 temp/
+mrcnn/
+
+setup.py
+setup.cfg
+
+
 
 
 # Byte-compiled / optimized / DLL files
