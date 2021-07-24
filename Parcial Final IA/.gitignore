@@ -1,5 +1,5 @@
 # Data files and directories common in repo root
-samples/
+samples
 logs/
 *.h5
 results/
