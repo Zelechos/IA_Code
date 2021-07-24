@@ -1,6 +1,13 @@
-# MaskRCNN_Video
+# Modelo Final
 
-En este proyecto abordaremos la segmentación semantica usando MaskRCNN en imagenes. Los repositorios base de este proyecto son los siguiente. 
+Pregunta No 1, Tumiri Huanca Alex
+
+## 1. Desarrollar un modelo de visión por computador, que aplique segmentación semantica y pueda identificar palomas en imágenes fotográficas.
+- Lo modelos deben lograr por lo menos un 70% de precisión con datos de prueba.
+- Se debe copiar el código fuente y dejar la dirección del repositorio de github (requisito indispensable para pasar a defensa)
+
+
+## En este proyecto abordaremos la segmentación semantica usando MaskRCNN en imagenes. Los repositorios base de este proyecto son los siguiente. 
 - El primero de ellos es la implementación para Tensorflow 1.
 - El segundo repositorio tiene la actualización para Tensorflow 2.
 Se realizaron modificaciones para correr la detección usando la cámara web.
