@@ -1,16 +1,8 @@
 # Data files and directories common in repo root
-samples/
 logs/
 *.h5
 results/
 temp/
-mrcnn/
-
-setup.py
-setup.cfg
-
-
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
