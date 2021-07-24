@@ -1,5 +1,5 @@
 # Data files and directories common in repo root
-samples
+samples/
 logs/
 *.h5
 results/
@@ -8,8 +8,6 @@ mrcnn/
 
 setup.py
 setup.cfg
-
-
 
 
 # Byte-compiled / optimized / DLL files
